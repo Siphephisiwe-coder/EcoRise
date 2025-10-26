@@ -1,6 +1,6 @@
 // Pseudo-code
 if (!localStorage.getItem("loggedInUser")) {
-    window.location.href = "login.html";
+    window.location.href = "signup.html";
 }
 
 document.getElementById("matchForm").addEventListener("submit", function (e) {
