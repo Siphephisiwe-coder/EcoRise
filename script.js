@@ -1,3 +1,8 @@
+// Pseudo-code
+if (!localStorage.getItem("loggedInUser")) {
+    window.location.href = "login.html";
+}
+
 document.getElementById("matchForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -90,3 +95,52 @@ document.getElementById("searchResources").addEventListener("click", () => {
   const filtered = resources.filter(res => res.title.toLowerCase().includes(query) || res.topic.toLowerCase().includes(query));
   displayResources(filtered);
 });
+
+// my network
+const networkTab = document.getElementById('networkTab');
+const networkModal = document.getElementById('networkModal');
+const closeNetwork = document.getElementById('closeNetwork');
+const networkGrid = document.getElementById('networkGrid');
+const filterBtns = document.querySelectorAll('.filter-btn');
+
+// Example connections
+const connections = [
+  { name: "Melissa Jacobs", role: "mentor", type: "Business Mentor", avatar: "https://i.pravatar.cc/80?img=32" },
+  { name: "Thabo Mokoena", role: "mentor", type: "Tech Startup Coach", avatar: "https://i.pravatar.cc/80?img=12" },
+  { name: "Sizwe Ndlovu", role: "client", type: "Freelance Client", avatar: "https://i.pravatar.cc/80?img=45" },
+  { name: "Richard Smith", role: "partner", type: "Startup Founder", avatar: "https://i.pravatar.cc/80?img=65" },
+  { name: "Marcus Dlamini", role: "partner", type: "Co-Founder - GreenUp", avatar: "https://i.pravatar.cc/80?img=33" },
+  { name: "Emily Chen", role: "client", type: "Finance Partner", avatar: "https://i.pravatar.cc/80?img=28" }
+];
+
+// Open/close modal
+networkTab.addEventListener('click', () => { networkModal.style.display = 'block'; });
+closeNetwork.addEventListener('click', () => { networkModal.style.display = 'none'; });
+window.addEventListener('click', e => { if(e.target === networkModal) networkModal.style.display = 'none'; });
+
+// Render avatars
+function renderConnections(filter = 'all') {
+  networkGrid.innerHTML = '';
+  connections
+    .filter(conn => filter === 'all' || conn.role === filter)
+    .forEach(conn => {
+      networkGrid.innerHTML += `
+        <div class="network-card">
+          <img src="${conn.avatar}" alt="${conn.name}">
+          <h4>${conn.name}</h4>
+          <p>${conn.type}</p>
+        </div>
+      `;
+    });
+}
+renderConnections();
+
+// Filter buttons
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderConnections(btn.getAttribute('data-filter'));
+  });
+});
+

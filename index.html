@@ -71,8 +71,39 @@
     </section>
   </main>
 
+  <section id="myNetwork" class="hidden">
+  <h2 class="section-title">My Network</h2>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="all">All</button>
+    <button class="tab" data-tab="mentors">Mentors</button>
+    <button class="tab" data-tab="clients">Clients</button>
+    <button class="tab" data-tab="partners">Partners</button>
+  </div>
+
+  <!--My network-->
+  <!-- Floating My Network Tab -->
+<div id="networkTab" class="floating-tab">My Network</div>
+
+<!-- Network Modal -->
+<div id="networkModal" class="network-modal">
+  <div class="network-header">
+    <h2>My Network</h2>
+    <button id="closeNetwork" class="close-btn">&times;</button>
+  </div>
+  <div class="network-filters">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="mentor">Mentors</button>
+    <button class="filter-btn" data-filter="client">Clients</button>
+    <button class="filter-btn" data-filter="partner">Partners</button>
+  </div>
+  <div class="network-grid" id="networkGrid">
+    <!-- Avatars will be dynamically inserted here -->
+  </div>
+</div>
+
   <footer>
-    <p>© 2025 EcoRise | Built for FNB App of the Year Hackathon</p>
+    <p>© 2025 EcoRise | Built by Siphephisiwe Nyathi for the FNB App of the Year Hackathon</p>
   </footer>
 
   <script src="script.js"></script>
