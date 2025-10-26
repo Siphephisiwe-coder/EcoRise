@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoRise | Growing Businesses, Empowering Communities</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="hero">
+    <nav class="navbar">
+      <h1 class="logo">🌱 EcoRise</h1>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#connect">Connect</a>
+        <a href="#learn">Learn</a>
+        <a href="#about">About</a>
+      </div>
+    </nav>
+
+    <div class="hero-content">
+      <h2>Growing Businesses.<br> Empowering Communities.</h2>
+      <p>Turn your ideas into reality. Connect with others, collaborate, and build sustainable businesses that uplift your community.</p>
+      <div class="cta-buttons">
+        <a href="#connect" class="btn primary">Start Building</a>
+        <a href="#learn" class="btn secondary">Explore Learning</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="connect" class="section">
+      <h2>Find Your Business Match</h2>
+      <form id="matchForm">
+        <input type="text" id="mySkill" placeholder="What skill or idea do you have?" required>
+        <input type="text" id="lookingFor" placeholder="What are you looking for?" required>
+        <button type="submit">Find Connections</button>
+      </form>
+        <div id="demoSearches">
+            <p>Try a demo search to see how EcoRise connects people:</p>
+            <button onclick="runDemo('software development', 'investor')">Software Dev → Investor</button>
+            <button onclick="runDemo('marketing', 'business partner')">Marketing → Partner</button>
+            <button onclick="runDemo('agriculture', 'clients')">Agriculture → Clients</button>
+            <button onclick="runDemo('accounting', 'entrepreneurs')">Accounting → Entrepreneurs</button>
+            <button onclick="runDemo('fashion design', 'supplier')">Fashion → Supplier</button>
+        </div>
+      <div id="results"></div>
+
+    </section>
+
+    <section id="learn" class="section">
+      <h2>Guidance & Growth</h2>
+      <div id="resources">
+        <p><strong>Explore curated resources to grow your business, sharpen your skills, and make informed decisions.</strong></p>
+
+        <!-- Resource search or category filter -->
+        <input type="text" id="resourceSearch" placeholder="Search resources by topic or skill">
+        <button id="searchResources">Search</button>
+
+        <!-- Resource list -->
+        <div id="resources">
+        <ul id="resourceList"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <h2>About EcoRise</h2>
+      <p>EcoRise helps entrepreneurs and small business owners connect, collaborate, and grow. Whether in rural or urban areas, we believe in building sustainable, community-driven businesses that create opportunities for everyone.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 EcoRise | Built for FNB App of the Year Hackathon</p>
+  </footer>
+
+  <script src="script.js"></script>
+  
+<!--floating elements-->
+  <div class="floating-elements">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+</body>
+</html>
