@@ -45,38 +45,108 @@ body {
   50% { transform: translateY(10px); }
 }
 
-/* Navbar */
+/* ==================== Navbar ======================= */
+/* Navbar Base */
 .navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1100px;
-  margin: 0 auto 3rem;
-  padding: 0 1.5rem;
+  padding: 0.8rem 1.5rem;
+  background: rgba(46, 125, 50, 0.25); 
+  backdrop-filter: blur(10px);
+  border-radius: 0 0 15px 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
+/* Logo */
 .logo {
   color: #1b5e20;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   font-weight: 700;
 }
 
+/* Nav Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-right: 3rem;
+}
+
 .nav-links a {
-  margin: 0 12px;
   text-decoration: none;
   color: #1b5e20;
   font-weight: 600;
-  transition: color 0.3s ease;
+  transition: 0.3s;
 }
 
 .nav-links a:hover {
-  background: #2e7d32;
   color: #fff;
+  background-color: #388e3c;
   padding: 6px 12px;
   border-radius: 5px;
 }
 
-/* Hero Content */
+/* Logout Button */
+.logout-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: #1b5e20;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #2e7d32;
+  color: #fff;
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #1b5e20;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 10px;
+    background: rgba(46, 125, 50, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 1rem;
+    width: 180px;
+  }
+
+  .nav-links a, .logout-btn {
+    display: block;
+    text-align: left;
+    margin: 8px 0;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
+
+/*==== Hero Content ==== */
 .hero-content {
   max-width: 700px;
   margin: 0 auto;

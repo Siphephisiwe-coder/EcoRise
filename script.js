@@ -5,6 +5,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Toggle mobile menu
+document.getElementById("menuToggle").addEventListener("click", () => {
+  document.getElementById("navLinks").classList.toggle("active");
+});
+
+// Logout functionality
+document.getElementById("logoutBtn").addEventListener("click", () => {
+  localStorage.removeItem("loggedInUser");
+  window.location.href = "login.html";
+});
+
 document.getElementById("matchForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
