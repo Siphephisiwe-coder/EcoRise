@@ -5,9 +5,28 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Toggle mobile menu
-document.getElementById("menuToggle").addEventListener("click", () => {
-  document.getElementById("navLinks").classList.toggle("active");
+// Mobile menu functionality
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+// Toggle menu when hamburger is clicked
+menuToggle.addEventListener("click", (e) => {
+  e.stopPropagation();
+  navLinks.classList.toggle("active");
+});
+
+// Close menu when clicking outside
+document.addEventListener("click", (e) => {
+  if (navLinks.classList.contains("active") && !navLinks.contains(e.target)) {
+    navLinks.classList.remove("active");
+  }
+});
+
+// Close menu when clicking a link
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+  });
 });
 
 // Logout functionality
