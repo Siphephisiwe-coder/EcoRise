@@ -3,8 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="0; URL=signup.html">
-
   <title>EcoRise | Growing Businesses, Empowering Communities</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -108,6 +106,13 @@
   <span></span>
   <span></span>
 </div>
+
+<script>
+  // Redirect only if user isn't logged in
+  if (!localStorage.getItem("loggedInUser")) {
+    window.location.href = "signup.html";
+  }
+</script>
 
 </body>
 </html>
