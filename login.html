@@ -75,23 +75,30 @@ document.getElementById("loginBtn").addEventListener("click", () => {
     return;
   }
 
-  // Get stored user data
-  const storedUserData = localStorage.getItem("demoUser");
-  if (!storedUserData) {
-    alert("No account found. Please sign up first.");
-    window.location.href = "signup.html";
+  // Demo credentials for judges
+  const demoEmail = "demo@ecorise.com";
+  const demoPassword = "EcoRise!2025$Hackathon";
+
+  // Check if user entered the demo credentials
+  if (email === demoEmail && password === demoPassword) {
+    localStorage.setItem("loggedInUser", email);
+    window.location.href = "index.html";
     return;
   }
 
-  const user = JSON.parse(storedUserData);
-  
-  // Check credentials
-  if(email === user.email && password === user.password){
-    localStorage.setItem("loggedInUser", email);
-    window.location.href = "index.html";
-  } else {
-    alert("Invalid email or password. Please try again.");
+  // Check stored user data (if someone actually signed up)
+  const storedUserData = localStorage.getItem("demoUser");
+  if (storedUserData) {
+    const user = JSON.parse(storedUserData);
+    if(email === user.email && password === user.password){
+      localStorage.setItem("loggedInUser", email);
+      window.location.href = "index.html";
+      return;
+    }
   }
+
+  // If nothing matches
+  alert("Invalid email or password. Please try again.");
 });
 </script>
 </body>
