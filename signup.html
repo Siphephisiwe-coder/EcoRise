@@ -163,13 +163,16 @@ signupForm.addEventListener("submit", function(e) {
     password
   };
 
+  // Store user data
   localStorage.setItem("demoUser", JSON.stringify(user));
+  // Set login state
+  localStorage.setItem("loggedInUser", email);
 
-  alert("Signup successful! You can now login.");
+  alert("Signup successful!");
   signupForm.reset();
 
-  // Redirect to login page
-  window.location.href = "login.html";
+  // Redirect directly to index page since user is now logged in
+  window.location.href = "index.html";
 });
   </script>
 </body>
