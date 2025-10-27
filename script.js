@@ -1,7 +1,9 @@
-// Pseudo-code
-if (!localStorage.getItem("loggedInUser")) {
-    window.location.href = "signup.html";
-}
+// Check login status when the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    if (!localStorage.getItem("loggedInUser")) {
+        window.location.href = "signup.html";
+    }
+});
 
 document.getElementById("matchForm").addEventListener("submit", function (e) {
   e.preventDefault();
