@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EcoRise | Growing Businesses, Empowering Communities</title>
   <link rel="stylesheet" href="style.css">
+  <script>
+    // Immediately check login status and redirect
+    if (!localStorage.getItem("loggedInUser")) {
+      window.location.replace("signup.html");
+    }
+  </script>
+  <!-- Fallback redirect in case JavaScript is disabled -->
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=signup.html">
+  </noscript>
 </head>
 <body>
 
