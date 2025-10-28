@@ -102,11 +102,11 @@ function runDemo(skill, lookingFor) {
 }
 
 const resources = [
-  { title: "Starting a Small Business", type: "Article", link: "https://www.entrepreneur.com/article/288134", topic: "entrepreneurship" },
-  { title: "Marketing Basics for Entrepreneurs", type: "Video", link: "https://www.youtube.com/watch?v=8z7MLtE8N8I", topic: "marketing" },
-  { title: "Financial Literacy for Startups", type: "PDF", link: "https://www.sba.gov/sites/default/files/files/Financial_Literacy_Starter_Guide.pdf", topic: "finance" },
-  { title: "Agriculture Business Tips", type: "Video", link: "https://www.youtube.com/watch?v=09vQhG3qY0A", topic: "agriculture" },
-  { title: "Building Sustainable Businesses", type: "Article", link: "https://hbr.org/2019/05/building-sustainable-businesses", topic: "sustainability" }
+  { title: "Starting a Small Business", type: "Article", link: "https://www.businessnewsdaily.com/4686-how-to-start-a-business.html", topic: "entrepreneurship" },
+  { title: "Marketing Basics for Entrepreneurs", type: "Video", link: "https://mailchimp.com/resources/startup-marketing-strategy/?gclsrc=aw.ds&gad_source=1&gad_campaignid=22764712998&gbraid=0AAAABAjJLlYmAoyRjiCuPwkajXm1_sHbZ&gclid=Cj0KCQjwsPzHBhDCARIsALlWNG3fFZgvJHu9szvpMEx_r_ZA9Lr5KXjs6eLo9ihkBgBD55OEKUNd2yoaArjLEALw_wcB", topic: "marketing" },
+  { title: "Financial Literacy for Startups", type: "PDF", link: "https://www.modeliks.com/resources/business-plans/financial-literacy", topic: "finance" },
+  { title: "Agriculture Business Tips", type: "Video", link: "https://www.youtube.com/watch?v=heTxEsrPVdQ", topic: "agriculture" },
+  { title: "Building Sustainable Businesses", type: "Article", link: "https://fsc.org/en/blog/sustainable-business-practices", topic: "sustainability" }
 ];
 
 function displayResources(filteredResources) {
