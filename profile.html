@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoRise | My Profile</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .small-hero {
+        background: rgba(255,255,255,0.4);
+        backdrop-filter: blur(10px);
+        padding: 60px 0 20px;
+        text-align: center;
+        }
+
+    .small-hero .hero-content h2 {
+        font-size: 2rem;
+    }
+
+  </style>
+
+  <script>
+    // Redirect if not logged in
+    if (!localStorage.getItem("loggedInUser")) {
+      window.location.replace("signup.html");
+    }
+  </script>
+</head>
+<body>
+  <header class="hero small-hero">
+    <nav class="navbar">
+      <h1 class="logo">🌱 EcoRise</h1>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#connect">Connect</a>
+        <a href="index.html#learn">Learn</a>
+        <a href="index.html#about">About</a>
+        <a href="profile.html" class="active">My Profile</a>
+        <button id="logoutBtn" class="logout-btn">Logout</button>
+      </div>
+      <div class="menu-toggle" id="menuToggle">&#9776;</div>
+    </nav>
+    <div class="hero-content">
+      <h2>My Profile</h2>
+      <p>Manage your business identity and let others discover you.</p>
+    </div>
+  </header>
+
+  <main class="section">
+    <form id="profileForm">
+      <input type="text" id="fullName" placeholder="Full Name" required>
+      <input type="text" id="location" placeholder="Location">
+      <input type="text" id="skill" placeholder="Your Skill / Profession">
+      <input type="text" id="lookingForProfile" placeholder="What are you looking for?">
+      <textarea id="bio" placeholder="Tell us about yourself..." rows="3"></textarea>
+      <button type="submit">Save Profile</button>
+    </form>
+
+    <div id="profileDisplay" style="display:none; margin-top: 1rem;">
+      <h3 id="displayName"></h3>
+      <p><strong>Location:</strong> <span id="displayLocation"></span></p>
+      <p><strong>Skill:</strong> <span id="displaySkill"></span></p>
+      <p><strong>Looking for:</strong> <span id="displayLookingFor"></span></p>
+      <p><strong>About:</strong> <span id="displayBio"></span></p>
+      <button id="editProfile">Edit</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 EcoRise | Built by Siphephisiwe Nyathi</p>
+  </footer>
+
+  <script src="profile.js"></script>
+</body>
+</html>
