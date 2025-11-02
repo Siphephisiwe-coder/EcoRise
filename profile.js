@@ -107,18 +107,41 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderPosts() {
     postsContainer.innerHTML = "";
     const posts = userPosts[loggedInEmail] || [];
-    posts.forEach(p => {
+    posts.forEach((p, idx) => {
       const card = document.createElement("div");
       card.classList.add("post-card");
       card.innerHTML = `
         <p>${p.text}</p>
         ${p.image ? `<img src="${p.image}" alt="Post Image">` : ""}
         <small>${p.timestamp}</small>
+        <div class="post-actions">
+          <button class="delete-post" data-index="${idx}">Delete</button>
+        </div>
       `;
       postsContainer.appendChild(card);
     });
   }
 
+  // Delete post handler (delegation)
+  postsContainer.addEventListener('click', (e) => {
+    if (!e.target.matches('.delete-post')) return;
+    const idx = Number(e.target.dataset.index);
+    if (Number.isNaN(idx)) return;
+    // confirm deletion
+    if (!confirm('Delete this post?')) return;
+    deletePost(idx);
+  });
+
+  function deletePost(index) {
+    const posts = userPosts[loggedInEmail] || [];
+    if (index < 0 || index >= posts.length) return;
+    posts.splice(index, 1);
+    userPosts[loggedInEmail] = posts;
+    localStorage.setItem('userPosts', JSON.stringify(userPosts));
+    renderPosts();
+  }
+
+  
   renderPosts();
 
   // Logout
