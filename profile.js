@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const loggedInEmail = localStorage.getItem("loggedInUser");
   const userProfiles = JSON.parse(localStorage.getItem("userProfiles")) || {};
   const userPosts = JSON.parse(localStorage.getItem("userPosts")) || {};
+  const DEFAULT_AVATAR = "https://cdn-icons-png.flaticon.com/512/847/847969.png";
 
   const profileForm = document.getElementById("profileForm");
   const profileDisplay = document.getElementById("profileDisplay");
@@ -13,8 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
     showProfile(userProfiles[loggedInEmail]);
   }
 
-  // Upload profile picture
-  profilePicUpload.addEventListener("change", (e) => {
+  // Profile picture change handler function
+  function handleProfilePicChange(e) {
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
@@ -24,7 +25,28 @@ document.addEventListener("DOMContentLoaded", () => {
       };
       reader.readAsDataURL(file);
     }
-  });
+  }
+
+  // Upload profile picture
+  profilePicUpload.addEventListener("change", handleProfilePicChange);
+
+  // Remove profile picture (reset to default avatar)
+  const removeBtn = document.getElementById('removeProfilePic');
+  if (removeBtn) {
+    removeBtn.addEventListener('click', () => {
+      if (!confirm('Remove profile picture and restore default avatar?')) return;
+      if (userProfiles[loggedInEmail]) {
+        userProfiles[loggedInEmail].profilePic = DEFAULT_AVATAR;
+        localStorage.setItem('userProfiles', JSON.stringify(userProfiles));
+      }
+      profilePicPreview.src = DEFAULT_AVATAR;
+      // Reset the file input
+      profilePicUpload.value = '';
+      // Force a refresh of the file input event listener
+      profilePicUpload.removeEventListener('change', handleProfilePicChange);
+      profilePicUpload.addEventListener('change', handleProfilePicChange);
+    });
+  }
 
   function saveProfilePic(base64) {
     if (!userProfiles[loggedInEmail]) userProfiles[loggedInEmail] = {};
@@ -54,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("displaySkill").innerText = profile.skill;
     document.getElementById("displayLookingFor").innerText = profile.lookingFor;
     document.getElementById("displayBio").innerText = profile.bio;
-    if (profile.profilePic) profilePicPreview.src = profile.profilePic;
+  profilePicPreview.src = profile.profilePic || DEFAULT_AVATAR;
 
     profileForm.style.display = "none";
     profileDisplay.style.display = "block";
