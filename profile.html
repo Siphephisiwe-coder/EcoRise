@@ -85,6 +85,12 @@
       border-radius: 10px;
       margin-top: 10px;
     }
+    /* Tweak profile visuals on very small screens to avoid overflow/large gaps */
+    @media (max-width: 480px) {
+      .profile-picture { width: 90px; height: 90px; bottom: -45px; }
+      .profile-pic-actions { margin: 60px auto 12px; max-width: 320px; padding: 0 8px; }
+      .profile-card { padding: 16px; margin: 1rem; }
+    }
   </style>
 
   <script>
@@ -98,9 +104,9 @@
     <h1 class="logo">🌱 EcoRise</h1>
     <div class="nav-links" id="navLinks">
       <a href="index.html#home">Home</a>
-      <a href="connect.html">Connect</a>
-      <a href="learn.html">Learn</a>
-      <a href="about.html">About</a>
+      <a href="index.html#connect">Connect</a>
+      <a href="index.html#learn">Learn</a>
+      <a href="index.html#about">About</a>
       <a href="profile.html" class="active">My Profile</a>
       <button id="logoutBtn" class="logout-btn">Logout</button>
     </div>
@@ -120,11 +126,11 @@
   <main class="section">
     <div class="profile-card">
       <form id="profileForm">
-        <input type="text" id="fullName" placeholder="Full Name" required>
-        <input type="text" id="location" placeholder="Location">
-        <input type="text" id="skill" placeholder="Your Skill / Profession">
-        <input type="text" id="lookingForProfile" placeholder="What are you looking for?">
-        <textarea id="bio" placeholder="Tell us about yourself..." rows="3"></textarea>
+        <input type="text" id="fullName" placeholder="Your name" required>
+        <input type="text" id="location" placeholder="Where are you based?">
+        <input type="text" id="skill" placeholder="What's your expertise? (e.g., Solar Installation, Recycling)">
+        <input type="text" id="lookingForProfile" placeholder="Seeking: Partners? Mentorship? Opportunities?">
+        <textarea id="bio" placeholder="Share your green journey and what drives you..." rows="3"></textarea>
         <button type="submit">Save Profile</button>
       </form>
 
@@ -141,7 +147,7 @@
     <section class="post-section">
       <h2>My Posts</h2>
       <form class="post-form" id="postForm">
-        <textarea id="postText" placeholder="Share an update, achievement, or project..."></textarea>
+        <textarea id="postText" placeholder="Share your latest eco-friendly project, green initiative, or sustainability tip..."></textarea>
         <input type="file" id="postImage" accept="image/*">
         <button type="submit">Post</button>
       </form>
